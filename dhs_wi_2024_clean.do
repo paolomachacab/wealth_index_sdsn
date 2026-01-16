@@ -203,6 +203,27 @@ drop agua_rio_ind
 label var agua_rio_hog "Agua: Río/acequia/vertiente"
 tab agua_rio_hog, m
 
+**************
+* variaciones * Agua mejorada
+**************
+ 
+// De acuerdo a Rusbetein: juntar rios con lagos P07_AGUAPRO==7 
+	// esta la variación en 2012, pero no en 2024
+
+cap drop agua_mejorada
+gen agua_mejorada=.
+replace agua_mejorada=0 if v07_aguapro==1 & inlist(v08_aguadist,1,2) & urbrur==1
+replace agua_mejorada=0 if v07_aguapro==2 & urbrur==1
+replace agua_mejorada=0 if v07_aguapro==3 & urbrur==1
+replace agua_mejorada=0 if v07_aguapro==1 & inlist(v08_aguadist,1,2) & urbrur==2
+replace agua_mejorada=0 if v07_aguapro==2 & urbrur==2
+replace agua_mejorada=0 if v07_aguapro==3 & urbrur==2
+replace agua_mejorada=0 if v07_aguapro==4 & urbrur==2
+replace agua_mejorada=0 if v07_aguapro==6 & urbrur==2
+replace agua_mejorada=1 if agua_mejorada==.
+
+tab agua_mejorada,m
+
 
 * --- 5) SANEAMIENTO ---
 * 1=Privado, 2=Compartido 
@@ -583,6 +604,7 @@ keep i00 w_quintil
 duplicates drop  
 save "$out\viviendas_unicas_2024.dta", replace
 restore 
+
 
 
 
