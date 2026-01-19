@@ -29,8 +29,8 @@ El índice se construye con PCA aplicado a variables de activos y característic
 5. Análisis de Componentes Principales.
 6. Uso del **primer componente** como puntaje de riqueza.
 7. Estandarización del puntaje (z-score).
-8. Clasificación en **quintiles** (o deciles/cuartiles).
-9. Agregación a nivel municipal (promedios, proporciones por quintil, etc.). 
+8. Clasificación en **quintiles** (o deciles).
+9. Agregación a nivel municipal.
 
 ---
 
