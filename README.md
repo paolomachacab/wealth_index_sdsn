@@ -38,7 +38,7 @@ El índice se construye con PCA aplicado a variables de activos y característic
 
 Los insumos utilizados en este análisis provienen exclusivamente del **Censo de Población y Vivienda 2012** y **Censo de Población y Vivienda 2024** de Bolivia.
 
-Para acceder a los enlaces de descarga y documentación oficial, diríjase a la carpeta denominada `base-de-datos` dentro de este repositorio, donde encontrará la información al respecto.
+Para acceder a los enlaces de descarga y documentación oficial, diríjase a la carpeta denominada `source-data` dentro de este repositorio, donde encontrará la información al respecto.
 
 ---
 
