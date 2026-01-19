@@ -393,7 +393,7 @@ tab comb_guano_hog, m
 gen comb_limpio_ind = .
 replace comb_limpio_ind = 1 if inlist(v10_combus,1,2,5,6)
 replace comb_limpio_ind = 0 if !missing(v10_combus) & !inlist(v10_combus,1,2,5,6)
-bys i00: egen comb_limpio_hog = max(comb_gas_ind)
+bys i00: egen comb_limpio_hog = max(comb_limpio_ind)
 drop comb_limpio_ind
 label var comb_limpio_hog "Combustible limpio para cocinar"
 tab comb_limpio_hog, m
@@ -402,7 +402,7 @@ tab comb_limpio_hog, m
 * --- 9) BIENES ---
 gen radio_ind = .
 replace radio_ind = 1 if v19a_radio==1
-replace radio_ind = 0 if v19a_radio==2
+replace radio_ind = 0 if v19a_radio==2 & v19a_radio==9
 bys i00: egen radio_hog = max(radio_ind)
 drop radio_ind
 label var radio_hog "Tiene radio"
@@ -410,7 +410,7 @@ tab radio_hog, m
 
 gen tv_ind = .
 replace tv_ind = 1 if v19b_tv==1
-replace tv_ind = 0 if v19b_tv==2
+replace tv_ind = 0 if v19b_tv==2 & v19b_tv==9
 bys i00: egen tv_hog = max(tv_ind)
 drop tv_ind
 label var tv_hog "Tiene TV"
@@ -418,7 +418,7 @@ tab tv_hog, m
 
 gen telef_ind = .
 replace telef_ind = 1 if (v19h_telfijo==1 | v19d_celular==1)
-replace telef_ind = 0 if (v19h_telfijo==2 & v19d_celular==2)
+replace telef_ind = 0 if (v19h_telfijo==2 & v19d_celular==2 & v19h_telfijo==9 & v19d_celular==9)
 bys i00: egen telef_hog = max(telef_ind)
 drop telef_ind
 label var telef_hog "Tiene teléfono (fijo o celular)"
@@ -426,7 +426,7 @@ tab telef_hog, m
 
 gen comput_ind = .
 replace comput_ind = 1 if v19c_compu==1
-replace comput_ind = 0 if v19c_compu==2
+replace comput_ind = 0 if v19c_compu==2 & v19c_compu==9
 bys i00: egen comput_hog = max(comput_ind)
 drop comput_ind
 label var comput_hog "Tiene computadora"
@@ -434,7 +434,7 @@ tab comput_hog, m
 
 gen bici_ind = .
 replace bici_ind = 1 if v18a_bici==1
-replace bici_ind = 0 if v18a_bici==2
+replace bici_ind = 0 if v18a_bici==2 & v18a_bici==9
 bys i00: egen bici_hog = max(bici_ind)
 drop bici_ind
 label var bici_hog "Tiene bicicleta"
@@ -442,7 +442,7 @@ tab bici_hog, m
 
 gen moto_ind = .
 replace moto_ind = 1 if v18b_moto==1
-replace moto_ind = 0 if v18b_moto==2
+replace moto_ind = 0 if v18b_moto==2 & v18b_moto==9
 bys i00: egen moto_hog = max(moto_ind)
 drop moto_ind
 label var moto_hog "Tiene moto"
@@ -450,7 +450,7 @@ tab moto_hog, m
 
 gen vehic_ind = .
 replace vehic_ind = 1 if v18c_auto==1
-replace vehic_ind = 0 if v18c_auto==2
+replace vehic_ind = 0 if v18c_auto==2 & v18c_auto==9
 bys i00: egen vehic_hog = max(vehic_ind)
 drop vehic_ind
 label var vehic_hog "Tiene vehículo"
@@ -458,7 +458,7 @@ tab vehic_hog, m
 
 gen carreta_ind = .
 replace carreta_ind = 1 if v18d_carreta==1
-replace carreta_ind = 0 if v18d_carreta==2
+replace carreta_ind = 0 if v18d_carreta==2 & v18d_carreta==9
 bys i00: egen carreta_hog = max(carreta_ind)
 drop carreta_ind
 label var carreta_hog "Tiene carreta"
@@ -466,7 +466,7 @@ tab carreta_hog, m
 
 gen bote_ind = .
 replace bote_ind = 1 if v18e_bote==1
-replace bote_ind = 0 if v18e_bote==2
+replace bote_ind = 0 if v18e_bote==2 & v18e_bote==9
 bys i00: egen bote_hog = max(bote_ind)
 drop bote_ind
 label var bote_hog "Tiene bote/canoa"
@@ -516,6 +516,34 @@ label var hacin_viv "Hacinamiento (>2 pers/dorm)"
 label define hacinlab 0 "Sin hacinamiento" 1 "Con hacinamiento"
 label values hacin_viv hacinlab
 tab hacin_viv, m
+
+cap drop pers_dorm
+
+* 1. Ajuste de dormitorios (Paso 4: si es 0, se pone 1 porque deben dormir en algún lado)
+gen v14_adj = v14_dormit
+replace v14_adj = 1 if v14_dormit == 0
+
+* 2. Creación de la variable CONTINUA (Ratio real sin cortes)
+gen pers_dorm = tot_pers / v14_adj
+
+* 3. Tratamiento de Missings: Identificar casos donde falta tot_pers o v14_dormit
+* (Se dejan como . para el siguiente paso)
+replace pers_dorm = . if missing(tot_pers) | missing(v14_dormit)
+
+* 4. Sustitución por la media (Paso 4 del manual: "Mean substitution for missing values")
+summarize pers_dorm
+local media_hacin = r(mean)
+replace pers_dorm = `media_hacin' if pers_dorm == .
+
+* 5. Etiquetado (Ya no es 0/1, ahora es el número de personas por cuarto)
+label var pers_dorm "Ratio continuo de personas por dormitorio (DHS)"
+
+* Limpieza de variables temporales
+drop v14_adj
+
+* Verificación
+tab pers_dorm, m
+
 
 
 * --- 12) AYUDA DOMÉSTICA ---
@@ -615,11 +643,3 @@ keep i00 w_quintil
 duplicates drop  
 save "$out\viviendas_unicas_2024.dta", replace
 restore 
-
-
-
-
-
-
-
-
