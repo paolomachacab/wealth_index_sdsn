@@ -79,7 +79,7 @@ Los insumos provienen únicamente de los operativos oficiales publicados por el 
 ## Codebook (resumen)
 
 ### Variables de entrada (hogar)
-*Nota: Estas variables se transforman en indicadores binarios (1=Posee, 0=No posee) o continuas antes del análisis.
+> **Nota:** Estas variables se transforman en indicadores binarios (1=Posee, 0=No posee) o continuas antes del análisis.
 
 | Variable | Descripción |
 |--------|------------|
