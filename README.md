@@ -1,6 +1,4 @@
-SDSN 2026
-
-# The Wealth Index (basado en Censos de Bolivia)
+# The Wealth Index (SDSN 2026)
 
 Este repositorio contiene los **datos de salida** y el **código reproducible (Stata)** para construir un **Índice de Riqueza estilo DHS (DHS-style Wealth Index)** usando los **Censos de Población y Vivienda de Bolivia (2012 y 2024)**.
 
