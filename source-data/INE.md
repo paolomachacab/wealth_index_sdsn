@@ -1,6 +1,6 @@
 ### Fuentes de Datos
 
-El cálculo del índice se sustenta en los microdatos provenientes del **Instituto Nacional de Estadística (INE)** de Bolivia. 
+El cálculo del índice se sustenta en los microdatos del **Instituto Nacional de Estadística (INE)** de Bolivia. 
 
 #### Descarga de Bases de Datos
 Puede acceder a la documentación y descarga de datos originales en los siguientes enlaces:
