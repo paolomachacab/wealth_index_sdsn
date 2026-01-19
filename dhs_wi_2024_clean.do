@@ -68,7 +68,7 @@ save "$out\censo_2024_unido.dta", replace
 * DUMMIES (ACTIVOS Y SERVICIOS)
 ********************************************************************************
 
-* --- 1) PISO ---
+* --- 1) PISO --- (OK)
 cap drop piso_tierra_hog
 gen piso_tierra_ind = .
 replace piso_tierra_ind = 1 if v06_piso==1
@@ -124,7 +124,7 @@ label var piso_ladrillo_hog "Piso: Ladrillo"
 tab piso_ladrillo_hog, m
 
 
-* --- 2) TECHO ---
+* --- 2) TECHO --- (OK)
 * 1=Calamina, 2=Teja, 3=Losa, 4=Paja/Barro 
 forvalues c=1/4 {
     cap drop techo`c'_hog
@@ -137,7 +137,7 @@ forvalues c=1/4 {
 }
 
 
-* --- 3) PARED ---
+* --- 3) PARED --- (OK)
 * 1=Ladrillo, 2=Adobe, 3=Tabique, 4=Piedra, 5=Madera, 6=Caña 
 forvalues c=1/6 {
     cap drop pared`c'_hog
@@ -150,7 +150,7 @@ forvalues c=1/6 {
 }
 
 
-* --- 4) AGUA ---
+* --- 4) AGUA --- (OK)
 foreach s in red pileta aguatero pozobomba pozosin rio {
     cap drop agua_`s'_hog
 }
@@ -238,7 +238,7 @@ foreach c in 1 2 {
 }
 
 
-* --- 6) DESAGÜE ---
+* --- 6) DESAGÜE --- (OK)
 cap drop desag_alcantarillado_hog desag_septica_hog desag_pozo_ciego_hog desag_superficie_hog
 
 gen desag_alcantarillado_ind = .
@@ -615,6 +615,7 @@ keep i00 w_quintil
 duplicates drop  
 save "$out\viviendas_unicas_2024.dta", replace
 restore 
+
 
 
 
