@@ -1,12 +1,12 @@
 # The Wealth Index (SDSN 2026)
 
-Este repositorio contiene los **datos de salida** y el **código reproducible (Stata)** para construir el **Índice de Riqueza estilo DHS (DHS-style Wealth Index)** usando los **Censos de Población y Vivienda de Bolivia (2012 y 2024)**.
+Este repositorio contiene los **datos de salida** y el **código reproducible (Stata)** para construir el **Índice de Riqueza estilo DHS usando los **Censos de Población y Vivienda de Bolivia (2012 y 2024)**.
 
 La construcción sigue la lógica del **[DHS Wealth Index](https://dhsprogram.com/topics/wealth-index/Index.cfm)**, que utiliza **Análisis de Componentes Principales (PCA)** sobre un conjunto de variables de activos y condiciones de vivienda para aproximar el **estatus económico** del hogar (no ingreso ni consumo).
 
 ### Contenido del Repositorio
 
-* **Código reproducible:** Archivos .do de Stata para el procesamiento y cálculo del índice de riqueza.
+* **Código reproducible:** Archivos .do de Stata para el procesamiento y cálculo del índice.
 * **Quintiles de riqueza:** Bases de datos con la estratificación socioeconómica resultante.
 * **Datos municipales:** Resultados del índice agregados a nivel geográfico municipal.
 
