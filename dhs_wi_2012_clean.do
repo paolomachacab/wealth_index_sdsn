@@ -713,6 +713,32 @@ label define binlab 0 "Sin" 1 "Con hacinamiento"
 label values hacin_viv binlab
 tab hacin_viv, m
 
+* 1. Ajuste de dormitorios (Paso 4: si es 0, se pone 1 porque deben dormir en algún lado)
+gen v14_adj = v14_dormit
+replace v14_adj = 1 if v14_dormit == 0
+
+* 2. Creación de la variable CONTINUA (Ratio real sin cortes)
+gen pers_dorm = tot_pers / v14_adj
+
+* 3. Tratamiento de Missings: Identificar casos donde falta tot_pers o v14_dormit
+* (Se dejan como . para el siguiente paso)
+replace pers_dorm = . if missing(tot_pers) | missing(v14_dormit)
+
+* 4. Sustitución por la media (Paso 4 del manual: "Mean substitution for missing values")
+summarize pers_dorm
+local media_hacin = r(mean)
+replace pers_dorm = `media_hacin' if pers_dorm == .
+
+* 5. Etiquetado (Ya no es 0/1, ahora es el número de personas por cuarto)
+label var pers_dorm "Ratio continuo de personas por dormitorio (DHS)"
+
+* Limpieza de variables temporales
+drop v14_adj
+
+* Verificación
+tab pers_dorm, m
+
+
 *========================================================
 * 12) AYUDA DOMÉSTICA
 *========================================================
@@ -837,6 +863,7 @@ duplicates drop
 save "$out\viviendas_unicas_2012.dta", replace
 
 restore 
+
 
 
 
