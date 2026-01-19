@@ -119,15 +119,10 @@ Los insumos provienen únicamente de los operativos oficiales publicados por el 
 | q5_share | Proporción de hogares en el quintil más rico |
 
 
-## Referencias metodológicas
+## Referencias
 
-- **[Rutstein (2008): The DHS Wealth Index](https://dhsprogram.com/publications/publication-cr15-comparative-reports.cfm)**
-- **[Filmer & Pritchett (2001): Estimating Wealth Effects](https://www.jstor.org/stable/3088292)**
+- **[Rutstein, S. O. (2008). The DHS wealth index: Approaches for rural and urban areas (DHS Working Paper No. 60). United States Agency for International Development.]([https://dhsprogram.com/publications/publication-cr15-comparative-reports.cfm](https://dhsprogram.com/pubs/pdf/wp60/wp60.pdf))**
+- **[Rutstein, S. O. (2015). Steps to constructing the new DHS wealth index (DHS Methodological Report No. 9). ICF International.]([https://www.jstor.org/stable/3088292](https://dhsprogram.com/programming/wealth%20index/Steps_to_constructing_the_new_DHS_Wealth_Index.pdf))**
 
----
-
-## Contacto
-
-Este repositorio fue desarrollado con fines de investigación aplicada y comparación territorial. 
 
 
