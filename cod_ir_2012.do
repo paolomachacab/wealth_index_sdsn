@@ -714,15 +714,15 @@ label values hacin_viv binlab
 tab hacin_viv, m
 
 * 1. Ajuste de dormitorios (Paso 4: si es 0, se pone 1 porque deben dormir en algún lado)
-gen v14_adj = v14_dormit
-replace v14_adj = 1 if v14_dormit == 0
+gen p15_adj = P15_DORMIT
+replace p15_adj = 1 if P15_DORMIT == 0
 
 * 2. Creación de la variable CONTINUA (Ratio real sin cortes)
-gen pers_dorm = tot_pers / v14_adj
+gen pers_dorm = tot_pers / p15_adj
 
 * 3. Tratamiento de Missings: Identificar casos donde falta tot_pers o v14_dormit
 * (Se dejan como . para el siguiente paso)
-replace pers_dorm = . if missing(tot_pers) | missing(v14_dormit)
+replace pers_dorm = . if missing(TOTPERS_VIV) | missing(P15_DORMIT)
 
 * 4. Sustitución por la media (Paso 4 del manual: "Mean substitution for missing values")
 summarize pers_dorm
@@ -733,7 +733,7 @@ replace pers_dorm = `media_hacin' if pers_dorm == .
 label var pers_dorm "Ratio continuo de personas por dormitorio (DHS)"
 
 * Limpieza de variables temporales
-drop v14_adj
+drop p15_adj
 
 * Verificación
 tab pers_dorm, m
@@ -966,6 +966,7 @@ save "$out\resumen_municipal_hogares.dta", replace
 restore
 
 restore
+
 
 
 
