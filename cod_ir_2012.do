@@ -718,7 +718,7 @@ gen p15_adj = P15_DORMIT
 replace p15_adj = 1 if P15_DORMIT == 0
 
 * 2. Creación de la variable CONTINUA (Ratio real sin cortes)
-gen pers_dorm = tot_pers / p15_adj
+gen pers_dorm = TOTPERS_VIV / p15_adj
 
 * 3. Tratamiento de Missings: Identificar casos donde falta tot_pers o v14_dormit
 * (Se dejan como . para el siguiente paso)
@@ -966,6 +966,7 @@ save "$out\resumen_municipal_hogares.dta", replace
 restore
 
 restore
+
 
 
 
