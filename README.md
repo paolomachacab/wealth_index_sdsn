@@ -101,7 +101,7 @@ Los insumos provienen únicamente de los operativos oficiales publicados por el 
 | cocina_hog | Cocina exclusiva |
 | carreta_hog | Tiene carreta |
 | bote_hog | Tiene bote |
-| tenencia_hog | Tenencia de vivienda |
+| vivprop_hog | Vivienda propia |
 | hacin_viv | Hacinamiento |
 | ayuda_dom_viv | Ayuda doméstica |
 
