@@ -57,18 +57,19 @@ Los insumos provienen únicamente de los operativos oficiales publicados por el 
 - Material del piso
 - Material del techo
 - Material de las paredes
-- Hacinamiento (variable continua: personas por dormitorio)
+- Personas por dormitorio
+- Cuarto para cocinar
 
 ### Servicios básicos
 - Fuente de agua.
-- Tipo de servicio sanitario y sistema de desagüe
+- Servicio sanitario
+- Sistema de desagüe
 - Fuente de electricidad
 - Combustible para cocinar
 
 ### Bienes 
-- Radio, Televisor, Teléfono, Computadora.
-- Medios de transporte: Bicicleta, Motocicleta, Vehículo automotor, Carreta, Bote/Canoa.
-- Equipamiento: Cocina exclusiva.
+- Radio, Televisor, Teléfono/Celular, Computadora.
+- Bicicleta, Motocicleta, Vehículo automotor, Carreta, Bote/Canoa.
 
 ### Tenencia y condiciones del hogar
 - Vivienda propia.
