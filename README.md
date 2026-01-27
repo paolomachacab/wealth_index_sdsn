@@ -27,9 +27,9 @@ El índice se construye mediante **Análisis de Componentes Principales (PCA)** 
 La secuencia metodológica es la siguiente:
 
 1. Selección de activos y características de la vivienda.
-2. Transformación de variables categóricas en dummies binarias o continuas.
+2. Transformación de variables categóricas en dummies.
 3. Agregación de información individual a nivel hogar.
-4. Imputación de valores perdidos .
+4. Imputación de valores perdidos.
 5. Aplicación de Análisis de Componentes Principales (PCA).
 6. Extracción del primer componente principal.
 7. Estandarización del puntaje de riqueza (z-score).
@@ -80,7 +80,7 @@ Los insumos provienen únicamente de los operativos oficiales publicados por el 
 ## Codebook (resumen)
 
 ### Variables de entrada (hogar)
-> **Nota:** Estas variables se transforman en indicadores binarios (1=Posee, 0=No posee) o continuas antes del análisis.
+> **Nota:** Estas variables se transforman en indicadores binarios 0 y 1.
 
 | Variable | Descripción |
 |--------|------------|
