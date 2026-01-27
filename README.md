@@ -99,7 +99,7 @@ Los insumos provienen únicamente de los operativos oficiales publicados por el 
 | bici_hog | Tiene bicicleta |
 | moto_hog | Tiene motocicleta |
 | vehic_hog | Tiene vehículo |
-| cocina_hog | Cocina exclusiva |
+| cocina_hog | Cuarto para cocinar |
 | carreta_hog | Tiene carreta |
 | bote_hog | Tiene bote |
 | vivprop_hog | Vivienda propia |
