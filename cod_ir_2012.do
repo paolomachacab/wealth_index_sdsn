@@ -65,6 +65,35 @@ save "$out\censo_2012_unido.dta", replace
 * DUMMIES DHS WEALTH INDEX
 * ========================
 ********************************************************************************
+*==================================================================
+ * Combinación de variables "Tipos de vivienda "con: Vivienda propia
+*==================================================================
+cap drop prop_casa
+gen prop_casa = 0
+replace prop_casa = 1 if P19_TENENCIA == 1 & P01_TIPOVIV == 1
+tab prop_casa,m
+
+cap drop prop_depto
+gen prop_depto = 0
+replace prop_depto = 1 if P19_TENENCIA == 1 & P01_TIPOVIV == 2
+tab prop_depto,m
+
+cap drop prop_cuarto
+gen prop_cuarto = 0
+replace prop_cuarto = 1 if P19_TENENCIA == 1 & P01_TIPOVIV == 3
+tab prop_cuarto,m
+
+cap drop prop_viv_improvisada
+gen prop_viv_improvisada = 0
+replace prop_viv_improvisada = 1 if P19_TENENCIA == 1 & P01_TIPOVIV == 4
+tab prop_viv_improvisada,m
+
+cap drop prop_viv_local_no_viv
+gen prop_viv_local_no_viv = 0
+replace prop_viv_local_no_viv = 1 if P19_TENENCIA == 1 & P01_TIPOVIV == 5
+tab prop_viv_local_no_viv,m
+
+
 
 *========================================================
 * 1) PISO: P06_PISOS (OK)
@@ -891,6 +920,7 @@ tab qA_hog qB_hog, row col
 tab qA_per qB_per [fw=TOTPERS_VIV], row col
 
 save "$out\wealth_2012_AB_en_un_archivo.dta", replace
+
 
 
 
