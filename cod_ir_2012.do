@@ -130,26 +130,6 @@ drop piso_ladrillo_ind
 label var piso_ladrillo_hog "Piso: Ladrillo (dummy)"
 tab piso_ladrillo_hog, m
 
-*sum
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-piso_tierr~d |  9,827,089     .278952    .4484839          0          1
-piso_tierr~g |  9,827,089     .278952    .4484839          0          1
-piso_tablo~d |  9,827,089    .0230194    .1499651          0          1
-piso_tablo~g |  9,827,089    .0230194    .1499651          0          1
-piso_machi~d |  9,827,089    .0739048    .2616159          0          1
--------------+---------------------------------------------------------
-piso_machi~g |  9,827,089    .0739048    .2616159          0          1
-piso_mos_c~d |  9,827,089    .1851895    .3884513          0          1
-piso_mos_c~g |  9,827,089    .1851895    .3884513          0          1
-piso_cemen~d |  9,827,089    .3809239    .4856139          0          1
-piso_cemen~g |  9,827,089    .3809239    .4856139          0          1
--------------+---------------------------------------------------------
-piso_ladri~d |  9,827,089    .0517455    .2215128          0          1
-piso_ladri~g |  9,827,089    .0517455    .2215128          0          1
-
-
 
 *========================================================
 * 2) TECHO: P05_TECHO (OK)
@@ -176,20 +156,6 @@ label var techo1_hog "Techo: Calamina/plancha metálica (dummy)"
 label var techo2_hog "Techo: Teja (dummy)"
 label var techo3_hog "Techo: Losa de hormigón armado (dummy)"
 label var techo4_hog "Techo: Paja/palma/caña/barro (dummy)"
-
-*sum
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-  techo1_ind |  9,827,089    .5142804    .4997961          0          1
-  techo1_hog |  9,827,089    .5142804    .4997961          0          1
-  techo2_ind |  9,827,089    .3019295    .4590949          0          1
-  techo2_hog |  9,827,089    .3019295    .4590949          0          1
-  techo3_ind |  9,827,089    .0612553     .239798          0          1
--------------+---------------------------------------------------------
-  techo3_hog |  9,827,089    .0612553     .239798          0          1
-  techo4_ind |  9,827,089    .1020892    .3027656          0          1
-  techo4_hog |  9,827,089    .1020892    .3027656          0          1
 
 
 *========================================================
@@ -221,27 +187,6 @@ label var pared3_hog "Pared: Tabique/quinche (dummy)"
 label var pared4_hog "Pared: Piedra (dummy)"
 label var pared5_hog "Pared: Madera (dummy)"
 label var pared6_hog "Pared: Caña/palma/tronco (dummy)"
-
-
-*sum
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-  pared1_ind |  9,827,089    .5417554    .4982535          0          1
-  pared1_hog |  9,827,089    .5417554    .4982535          0          1
-  pared2_ind |  9,827,089    .3527636    .4778299          0          1
-  pared2_hog |  9,827,089    .3527636    .4778299          0          1
-  pared3_ind |  9,827,089    .0175801    .1314193          0          1
--------------+---------------------------------------------------------
-  pared3_hog |  9,827,089    .0175801    .1314193          0          1
-  pared4_ind |  9,827,089    .0102422    .1006841          0          1
-  pared4_hog |  9,827,089    .0102422    .1006841          0          1
-  pared5_ind |  9,827,089    .0599325    .2373617          0          1
-  pared5_hog |  9,827,089    .0599325    .2373617          0          1
--------------+---------------------------------------------------------
-  pared6_ind |  9,827,089    .0088837    .0938338          0          1
-  pared6_hog |  9,827,089    .0088837    .0938338          0          1
-
 
 
 *========================================================
@@ -319,23 +264,6 @@ replace agua_mejorada = 0 if inlist(P07,3,5,6,7) & URBRUR==2
 replace agua_mejorada = 1 if inlist(P07,1,2) & URBRUR==1
 replace agua_mejorada = 1 if inlist(P07,1,2,4) & URBRUR==2
 tab agua_mejorada,m
-
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-agua_mejor~a |  9,827,089    .8075384    .3942336          0          1
-agua_red_ind |  9,827,089    .7000999     .458214          0          1
-agua_red_hog |  9,827,089    .7000999     .458214          0          1
-agua_pilet~d |  9,827,089    .0840167    .2774129          0          1
-agua_pilet~g |  9,827,089    .0840167    .2774129          0          1
--------------+---------------------------------------------------------
-agua_aguat~d |  9,827,089    .0292641    .1685459          0          1
-agua_aguat~g |  9,827,089    .0292641    .1685459          0          1
-agua_pozob~d |  9,827,089    .0394913    .1947608          0          1
-agua_pozob~g |  9,827,089    .0394913    .1947608          0          1
-agua_pozos~d |  9,827,089    .0639061    .2445856          0          1
--------------+---------------------------------------------------------
-agua_pozos~g |  9,827,089    .0639061    .2445856          0          1
 
 
 *========================================================
@@ -460,32 +388,6 @@ replace saneamiento_mejorado = 0 if inlist(P10_DESAGUE,1) & URBRUR==1
 replace saneamiento_mejorado = 0 if inlist(P10_DESAGUE,1,2,3) & URBRUR==2
 tab saneamiento_mejorado,m
 
-*sum
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-desag_alca~d |  7,201,834    .5558529    .4968707          0          1
-desag_alca~g |  7,201,834    .5558529    .4968707          0          1
-desag_sept~d |  7,201,834    .1235657    .3290855          0          1
-desag_sept~g |  7,201,834    .1235657    .3290855          0          1
-desag_pozo~d |  7,201,834    .3143592    .4642602          0          1
--------------+---------------------------------------------------------
-desag_pozo~g |  7,201,834    .3143592    .4642602          0          1
-desag_supe~d |  7,201,834    .0062222    .0786349          0          1
-desag_supe~g |  7,201,834    .0062222    .0786349          0          1
-red_exclus~o |  9,827,089    .2272892    .4190809          0          1
-red_compar~o |  9,827,089    .1800705    .3842462          0          1
--------------+---------------------------------------------------------
-septica_ex~o |  9,827,089    .0479961     .213758          0          1
-septica_co~o |  9,827,089    .0425597    .2018623          0          1
-pozo_cieg~vo |  9,827,089    .1201673    .3251571          0          1
-pozo_cieg~do |  9,827,089    .1102125    .3131545          0          1
-superfici~vo |  9,827,089    .0021236    .0460338          0          1
--------------+---------------------------------------------------------
-superfici~do |  9,827,089    .0024363     .049299          0          1
-saneamient~o |  9,827,089    .4729578    .4992682          0          1
-
-
 
 *========================================================
 * 7) ELECTRICIDAD: P11_ENERGIA 
@@ -502,18 +404,6 @@ foreach c in 1 2 3 {
 label var elec1_hog "Electricidad: servicio público (dummy)"
 label var elec2_hog "Electricidad: generador/motor (dummy)"
 label var elec3_hog "Electricidad: panel solar (dummy)"
-
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-   elec1_ind |  9,827,089     .821244    .3831479          0          1
-   elec1_hog |  9,827,089     .821244    .3831479          0          1
-   elec2_ind |  9,827,089    .0119209    .1085303          0          1
-   elec2_hog |  9,827,089    .0119209    .1085303          0          1
-   elec3_ind |  9,827,089    .0121863     .109717          0          1
--------------+---------------------------------------------------------
-   elec3_hog |  9,827,089    .0121863     .109717          0          1
-
 
 
 *========================================================
@@ -571,27 +461,6 @@ bys I_BC_VIV: egen comb_limpio_hog = max(comb_limpio_ind)
 drop comb_limpio_ind
 label var comb_limpio_hog "Combustible limpio para cocinar (dummy)"
 tab comb_limpio_hog, m
-
-
-*sum
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-comb_limpi~g |  9,827,089    .7488333    .4336843          0          1
-comb_gas_ind |  9,827,089    .7428504    .4370626          0          1
-comb_gas_hog |  9,827,089    .7428504    .4370626          0          1
-comb_elec_~d |  9,827,089    .2247293     .417404          0          1
-comb_elec_~g |  9,827,089    .2247293     .417404          0          1
--------------+---------------------------------------------------------
-comb_solar~d |  9,827,089    .0178722     .132487          0          1
-comb_solar~g |  9,827,089    .0178722     .132487          0          1
-comb_lena_~d |  9,827,089    .0056191    .0747495          0          1
-comb_lena_~g |  9,827,089    .0056191    .0747495          0          1
-comb_guano~d |  9,827,089    .0003638    .0190698          0          1
--------------+---------------------------------------------------------
-comb_guano~g |  9,827,089    .0003638    .0190698          0          1
-
-
 
 
 
@@ -680,21 +549,6 @@ drop bote_ind
 label var bote_hog "Tiene bote/balsa/canoa (dummy)"
 tab bote_hog, m
 
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-   radio_hog |  9,827,089    .7724066    .4192788          0          1
-      tv_hog |  9,827,089    .7186764     .449645          0          1
-   telef_hog |  9,827,089    .6937698    .4609265          0          1
-  comput_hog |  9,827,089    .2606557    .4389924          0          1
-    bici_hog |  9,827,089    .3463406    .4758033          0          1
--------------+---------------------------------------------------------
-    moto_hog |  9,827,089    .1355094    .3422669          0          1
-   vehic_hog |  9,827,089    .2503894    .4332373          0          1
-  cocina_hog |  9,827,089    .7836865    .4117305          0          1
- carreta_hog |  9,827,089    .0427604    .2023164          0          1
-    bote_hog |  9,827,089    .0099148    .0990784          0          1
-
-
 
 *========================================================
 * 10) TENENCIA VIVIENDA: P19_TENENCIA (binaria "propia")
@@ -707,66 +561,6 @@ bys I_BC_VIV: egen vivprop_hog = max(vivprop_ind)
 drop vivprop_ind
 label var vivprop_hog "Vivienda propia (dummy: código 1)"
 tab vivprop_hog, m
-
-*tenencia ampliada
-
-cap drop vivalq_hog
-gen vivalq_ind = .
-replace vivalq_ind = 1 if P19_TENENCIA==2
-replace vivalq_ind = 0 if !missing(P19_TENENCIA) & P19_TENENCIA!=2
-bys I_BC_VIV: egen vivalq_hog = max(vivalq_ind)
-drop vivalq_ind
-label var vivalq_hog "Vivienda alquilada (dummy)"
-tab vivalq_hog, m
-
-cap drop vivant_hog
-gen vivant_ind = .
-replace vivant_ind = 1 if inlist(P19_TENENCIA,3,4)
-replace vivant_ind = 0 if !missing(P19_TENENCIA) & !inlist(P19_TENENCIA,3,4)
-bys I_BC_VIV: egen vivant_hog = max(vivant_ind)
-drop vivant_ind
-label var vivant_hog "Vivienda en anticretico (dummy)"
-tab vivant_hog, m
-
-cap drop vivced_hog
-gen vivced_ind = .
-replace vivced_ind = 1 if P19_TENENCIA==5
-replace vivced_ind = 0 if !missing(P19_TENENCIA) & P19_TENENCIA!=5
-bys I_BC_VIV: egen vivced_hog = max(vivced_ind)
-drop vivced_ind
-label var vivced_hog "Vivienda cedida (dummy)"
-tab vivced_hog, m
-
-cap drop vivpres_hog
-gen vivpres_ind = .
-replace vivpres_ind = 1 if P19_TENENCIA==6
-replace vivpres_ind = 0 if !missing(P19_TENENCIA) & P19_TENENCIA!=6
-bys I_BC_VIV: egen vivpres_hog = max(vivpres_ind)
-drop vivpres_ind
-label var vivpres_hog "Vivienda prestada (dummy)"
-tab vivpres_hog, m
-
-cap drop vivced_pres_hog
-gen vivced_pres_ind = .
-replace vivced_pres_ind = 1 if inlist(P19_TENENCIA,5,6)
-replace vivced_pres_ind = 0 if !missing(P19_TENENCIA) & !inlist(P19_TENENCIA,5,6)
-bys I_BC_VIV: egen vivced_pres_hog = max(vivced_pres_ind)
-drop vivced_pres_ind
-label var vivced_pres_hog "Vivienda cedida + prestada (dummy)"
-tab vivced_pres_hog, m
-
-*sum
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
- vivprop_hog |  9,827,089    .7091651    .4541475          0          1
-  vivant_hog |  9,827,089    .0342184    .1817897          0          1
-  vivced_hog |  9,827,089     .022802    .1492717          0          1
- vivpres_hog |  9,827,089    .0678671    .2515177          0          1
-  vivalq_hog |  9,827,089    .1504434    .3575056          0          1
--------------+---------------------------------------------------------
-vivced_pre~g |  9,827,089    .0906691    .2871379          0          1
-
 
 
 *==================================================================
@@ -830,14 +624,6 @@ label define binlab 0 "No" 1 "Sí"
 label values ayuda_dom_viv binlab
 label var ayuda_dom_viv "Vivienda con ayuda doméstica (dummy)"
 tab ayuda_dom_viv, m
-
-*sum
-
-
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-ayuda_dom_~v |  9,827,089    .0157779    .1246153          0          1
-
 
 
 *******************************************************************************
@@ -1111,6 +897,7 @@ tab qA_hog qB_hog, row col
 tab qA_per qB_per [fw=TOTPERS_VIV], row col
 
 save "$out\wealth_2012_AB_en_un_archivo.dta", replace
+
 
 
 
