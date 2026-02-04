@@ -281,12 +281,6 @@ foreach c in 1 2 {
 label var sanit1_hog "Sanitario: Sí, privado (dummy)"
 label var sanit2_hog "Sanitario: Sí, compartido (dummy)"
 
-    Variable |        Obs        Mean    Std. dev.       Min        Max
--------------+---------------------------------------------------------
-  sanit1_ind |  9,827,089    .3975762     .489397          0          1
-  sanit1_hog |  9,827,089    .3975762     .489397          0          1
-  sanit2_ind |  9,827,089     .335279    .4720879          0          1
-  sanit2_hog |  9,827,089     .335279    .4720879          0          1
 
 
 *========================================================
@@ -897,6 +891,7 @@ tab qA_hog qB_hog, row col
 tab qA_per qB_per [fw=TOTPERS_VIV], row col
 
 save "$out\wealth_2012_AB_en_un_archivo.dta", replace
+
 
 
 
