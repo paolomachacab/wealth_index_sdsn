@@ -491,6 +491,166 @@ drop vivprop_ind
 label var vivprop_hog "Vivienda propia"
 tab vivprop_hog, m
 
+*===================================================================
+* Combinación de variables "Tipos de vivienda "con: Vivienda propia* 1 y 2
+*====================================================================
+cap drop prop_casa
+gen prop_casa = 0
+replace prop_casa = 1 if inlist(v17_tenencia,1,2) & inlist(v01_tipoviv,1,2)
+tab prop_casa,m
+
+cap drop prop_depto
+gen prop_depto = 0
+replace prop_depto = 1 if inlist(v17_tenencia,1,2) & v01_tipoviv == 2
+tab prop_depto,m
+
+cap drop prop_cuarto
+gen prop_cuarto = 0
+replace prop_cuarto = 1 if inlist(v17_tenencia,1,2) & v01_tipoviv == 3
+tab prop_cuarto,m
+
+cap drop prop_viv_improvisada
+gen prop_viv_improvisada = 0
+replace prop_viv_improvisada = 1 if inlist(v17_tenencia,1,2) & v01_tipoviv == 4
+tab prop_viv_improvisada,m
+
+cap drop prop_viv_local_no_viv
+gen prop_viv_local_no_viv = 0
+replace prop_viv_local_no_viv = 1 if inlist(v17_tenencia,1,2) & v01_tipoviv == 5
+tab prop_viv_local_no_viv,m
+
+* Combinación de variables "Tipos de vivienda "con: Vivienda alquilada* 4
+cap drop alquilada_casa
+gen alquilada_casa = 0
+replace alquilada_casa = 1 if v17_tenencia == 6 & inlist(v01_tipoviv,1,2)
+tab alquilada_casa,m
+
+cap drop alquilada_depto
+gen alquilada_depto = 0
+replace alquilada_depto = 1 if v17_tenencia == 6 & v01_tipoviv == 2
+tab alquilada_depto,m
+
+cap drop alquilada_cuarto
+gen alquilada_cuarto = 0
+replace alquilada_cuarto = 1 if v17_tenencia == 6 & v01_tipoviv == 3
+tab alquilada_cuarto,m
+
+cap drop alquilada_viv_improvisada
+gen alquilada_viv_improvisada = 0
+replace alquilada_viv_improvisada = 1 if v17_tenencia == 6 & v01_tipoviv == 4
+tab alquilada_viv_improvisada,m
+
+cap drop alquilada_viv_local_no_viv
+gen alquilada_viv_local_no_viv = 0
+replace alquilada_viv_local_no_viv = 1 if v17_tenencia == 6 & v01_tipoviv == 5
+tab alquilada_viv_local_no_viv,m
+
+* Combinación de variables "Tipos de vivienda "con: Vivienda en contrato anticrético* 5
+cap drop anticr_casa
+gen anticr_casa = 0
+replace anticr_casa = 1 if v17_tenencia == 7 & inlist(v01_tipoviv,1,2)
+tab anticr_casa,m
+
+cap drop anticr_depto
+gen anticr_depto = 0
+replace anticr_depto = 1 if v17_tenencia == 7 & v01_tipoviv == 2
+tab anticr_depto,m
+
+cap drop anticr_cuarto
+gen anticr_cuarto = 0
+replace anticr_cuarto = 1 if v17_tenencia == 7 & v01_tipoviv == 3
+tab anticr_cuarto,m
+
+cap drop anticr_viv_improvisada
+gen anticr_viv_improvisada = 0
+replace anticr_viv_improvisada = 1 if v17_tenencia == 7 & v01_tipoviv == 4
+tab anticr_viv_improvisada,m
+
+cap drop anticr_viv_local_no_viv
+gen anticr_viv_local_no_viv = 0
+replace anticr_viv_local_no_viv = 1 if v17_tenencia == 7 & v01_tipoviv == 5
+tab anticr_viv_local_no_viv,m
+
+* Combinación de variables "Tipos de vivienda "con: Vivienda en contrato anticrético y alquiler* 6
+cap drop aya_casa
+gen aya_casa = 0
+replace aya_casa = 1 if v17_tenencia == 6 & inlist(v01_tipoviv,1,2)
+tab aya_casa,m
+
+cap drop aya_depto
+gen aya_depto = 0
+replace aya_depto = 1 if v17_tenencia == 6 & v01_tipoviv == 2
+tab aya_depto,m
+
+cap drop aya_cuarto
+gen aya_cuarto = 0
+replace aya_cuarto = 1 if v17_tenencia == 6 & v01_tipoviv == 3
+tab aya_cuarto,m
+
+cap drop aya_viv_improvisada
+gen aya_viv_improvisada = 0
+replace aya_viv_improvisada = 1 if v17_tenencia == 6 & v01_tipoviv == 4
+tab aya_viv_improvisada,m
+
+cap drop aya_viv_local_no_viv
+gen aya_viv_local_no_viv = 0
+replace aya_viv_local_no_viv = 1 if v17_tenencia == 6 & v01_tipoviv == 5
+tab aya_viv_local_no_viv,m
+
+* Combinación de variables "Tipos de vivienda "con: Cedida por servicios* 7
+cap drop ss_casa
+gen ss_casa = 0
+replace ss_casa = 1 if v17_tenencia == 7 & inlist(v01_tipoviv,1,2)
+tab ss_casa,m
+
+cap ss prop_depto
+gen ss_depto = 0
+replace ss_depto = 1 if v17_tenencia == 7 & v01_tipoviv == 2
+tab ss_depto,m
+
+cap drop ss_cuarto
+gen ss_cuarto = 0
+replace ss_cuarto = 1 if v17_tenencia == 7 & v01_tipoviv == 3
+tab ss_cuarto,m
+
+cap drop ss_viv_improvisada
+gen ss_viv_improvisada = 0
+replace ss_viv_improvisada = 1 if v17_tenencia == 7 & v01_tipoviv == 4
+tab ss_viv_improvisada,m
+
+cap drop ss_viv_local_no_viv
+gen ss_viv_local_no_viv = 0
+replace ss_viv_local_no_viv = 1 if v17_tenencia == 7 & v01_tipoviv == 5
+tab ss_viv_local_no_viv,m
+
+* Combinación de variables "Tipos de vivienda ": Prestada por parientes o amigos* 3
+cap drop prest_casa
+gen prest_casa = 0
+replace prest_casa = 1 if v17_tenencia == 3 & inlist(v01_tipoviv,1,2)
+tab prest_casa,m
+
+cap drop prest_depto
+gen prest_depto = 0
+replace prest_depto = 1 if v17_tenencia == 3 & v01_tipoviv == 2
+tab prest_depto,m
+
+cap drop prest_cuarto
+gen prest_cuarto = 0
+replace prest_cuarto = 1 if v17_tenencia == 3 & v01_tipoviv == 3
+tab prest_cuarto,m
+
+cap drop prest_viv_improvisada
+gen prest_viv_improvisada = 0
+replace prest_viv_improvisada = 1 if v17_tenencia == 3 & v01_tipoviv == 4
+tab prest_viv_improvisada,m
+
+cap drop prest_viv_local_no_viv
+gen prest_viv_local_no_viv = 0
+replace prest_viv_local_no_viv = 1 if v17_tenencia == 3 & v01_tipoviv == 5
+tab prest_viv_local_no_viv,m
+
+
+
 
 * --- 11) HACINAMIENTO ---
 cap drop TOT_PERS pers_dorm_temp hacin_viv
@@ -855,5 +1015,6 @@ use "$out\wealth_2024_AB_en_un_archivo.dta", clear
 corr wiA24_z wiB24_z
 tab qA24_hog qB24_hog, row col
 tab qA24_per qB24_per [fw=tot_pers], row col
+
 
 
