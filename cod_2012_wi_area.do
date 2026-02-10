@@ -572,9 +572,9 @@ save "$out\base_hogar_wealth_2012.dta", replace
 * 1. DEFINICIÓN DE GLOBALES
 ********************************************************************************
 
-global X_urb "pers_dorm internet comput_hog telef_hog tv_hog vehic_hog moto_hog bici_hog baño_compartido red_exclusivo red_compartido septica_exclusivo comb_gas_hog agua_red_hog piso_machi_parq piso_mos_cer_hog piso_tierra_hog techo3_hog pared1_hog prop_depto cocina_hog"
+global X_urb "pers_dorm internet comput_hog telef_hog tv_hog vehic_hog moto_hog bici_hog red_exclusivo septica_exclusivo sin_baño comb_gas_hog agua_red_hog piso_machi_parq piso_mos_cer_hog piso_tierra_hog techo3_hog techo2_hog pared1_hog cocina_hog"
 
-global X_rur "pers_dorm internet telef_hog radio_hog tv_hog vehic_hog moto_hog bici_hog carreta_hog sin_baño septica_exclusivo pozo_ciego_excl elec1_hog comb_gas_hog comb_lena_hog comb_solar_hog agua_red_hog  agua_rio_lago_hog piso_mos_cer_hog piso_cemento_hog piso_tierra_hog techo1_hog techo4_hog pared1_hog pared2_hog pared5_hog prop_casa"
+global X_rur "pers_dorm internet telef_hog radio_hog tv_hog vehic_hog moto_hog bici_hog carreta_hog sin_baño baño_exclusivo pozo_ciego_excl elec1_hog comb_gas_hog comb_elec_hog comb_solar_hog agua_red_hog agua_rio_hog piso_cemento_hog piso_tierra_hog techo1_hog techo4_hog pared1_hog pared2_hog pared5_hog"
 
 ********************************************************************************
 * 2. ESTIMACIÓN PCA POR ÁREA (Lógica de Rutstein para Países en Desarrollo)
